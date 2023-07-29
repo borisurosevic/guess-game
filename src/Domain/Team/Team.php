@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Team;
+namespace Guess\Domain\Team;
 
 class Team
 {

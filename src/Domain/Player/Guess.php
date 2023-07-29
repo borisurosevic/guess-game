@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Player;
+namespace Guess\Domain\Player;
 
 use DateTimeInterface;
 use App\Domain\Game\Game;

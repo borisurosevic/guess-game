@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\League;
+namespace Guess\Domain\League;
 
 class League
 {
