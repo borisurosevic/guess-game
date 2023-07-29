@@ -5,7 +5,7 @@ class League
 {
     private int $id;
     private string $name;
-    private string $teamNameSlugged;
+    private string $leagueNameSlugged;
     private string $logo;
     private int $leagueApiId;
 
@@ -54,22 +54,22 @@ class League
     }
 
     /**
-     * Get the value of teamNameSlugged
+     * Get the value of leagueNameSlugged
      * @return string
      */
-    public function getTeamNameSlugged(): string
+    public function getLeagueNameSlugged(): string
     {
-        return $this->teamNameSlugged;
+        return $this->leagueNameSlugged;
     }
 
     /**
-     * Set the value of teamNameSlugged
-     * @param string $teamNameSlugged
+     * Set the value of leagueNameSlugged
+     * @param string $leagueNameSlugged
      * @return self
      */
-    public function setTeamNameSlugged(string $teamNameSlugged): self
+    public function setLeagueNameSlugged(string $leagueNameSlugged): self
     {
-        $this->teamNameSlugged = $teamNameSlugged;
+        $this->leagueNameSlugged = $leagueNameSlugged;
 
         return $this;
     }
