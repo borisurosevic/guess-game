@@ -4,8 +4,9 @@ namespace Guess\Domain\Player;
 use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-class Player
+class Player implements UserInterface
 {
     private int $id;
     private string $username;
@@ -213,5 +214,19 @@ class Player
         $this->guesses = $guesses;
 
         return $this;
+    }
+
+    public function getRole()
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function getSlat()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
