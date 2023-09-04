@@ -1,13 +1,22 @@
 <?php
 
-namespace App\DataFixtures;
+namespace Guess\DataFixtures;
 
 use Guess\Domain\League\League;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Guess\Domain\Player\Player;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    private UserPasswordEncoderInterface $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager): void
     {
         $league = new League(1);
@@ -18,6 +27,13 @@ class AppFixtures extends Fixture
         $league->setLogo('premier-league-logo.png');
 
         $manager->persist($league);
+
+        $player = new Player();
+        $player->setUsername('fmo');
+        $player->setEmail('test@test.com');
+        $player->setPassword($this->encoder->encodePassword($player, '123123'));
+        $manager->persist($player);
+
         $manager->flush();
     }
 }

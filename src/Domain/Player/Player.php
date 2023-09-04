@@ -3,7 +3,7 @@ namespace Guess\Domain\Player;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Player implements UserInterface
@@ -16,7 +16,7 @@ class Player implements UserInterface
     private int $point;
     private int $avatar;
     private bool $isActive;
-    private ArrayCollection $guesses;
+    private Collection $guesses;
 
     public function __construct(){
         $this->avatar = 1;
@@ -197,36 +197,37 @@ class Player implements UserInterface
 
     /**
      * Get the value of guesses
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getGuesses(): ArrayCollection
+    public function getGuesses(): Collection
     {
         return $this->guesses;
     }
 
     /**
      * Set the value of guesses
-     * @param ArrayCollection $guesses
+     * @param Collection $guesses
      * @return self
      */
-    public function setGuesses(ArrayCollection $guesses): self
+    public function setGuesses(Collection $guesses): self
     {
         $this->guesses = $guesses;
 
         return $this;
     }
 
-    public function getRole()
+    public function getRoles()
     {
         return ['ROLE_USER'];
     }
 
-    public function getSlat()
+    public function getSalt()
     {
         return null;
     }
 
     public function eraseCredentials()
     {
+
     }
 }
